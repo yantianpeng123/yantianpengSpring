@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--Spring 模式是单例模式的 单例模式会产生线程安全问题，
+    Spring 中采用饿汉式解决线程安全问题的。
+    scope = prototype 表示是多例模式。-->
+    <bean id="userentity01" class="com.yantianpeng.entity.UserEntity" scope="prototype">
+    </bean>
+  <bean id="userentity02" class="com.yantianpeng.entity.UserEntity">
+    <constructor-arg name="userName" value="曹永芳"/>
+      <constructor-arg name="age" value="23"/>
+  </bean>
+
+    <!--<bean id="userDao" class="com.yantianpeng.dao.UserDao">-->
+    <!--</bean>-->
+    <!--<bean id="userService" class="com.yantianpeng.service.UserService">-->
+       <!--<property name="userDao" ref="userDao"></property>-->
+    <!--</bean>-->
+    <!--扫描包-->
+    <context:component-scan base-package="com.yantianpeng2"/>
+</beans>
